@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         MegaUp Better
+// @name         Easy MegaUp
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.01
 // @description  Script to auto download files from Megaup.net
 // @author       Re'Jaad
 // @match        *://megaup.net/*
@@ -31,20 +31,21 @@
         const n2 = document.querySelector("#idfilename")
         const n3 = document.querySelector("#idfilesize")
         const n4 = n3.value
+        const rm = n2.value
         const plus = n4.replaceAll(' ', '+')
 
 
         const urlId = n1.value
-        const filenameId = n2.value
+        const rms = rm.replaceAll(' ', '+')
         const filesizeId = plus
 
             setTimeout(() => {
                 if (n1) {
                     console.log(urlId)
-                    console.log(`https://download.megaup.net/?idurl=${encodeURIComponent(urlId)}&idfilename=${(filenameId)}&idfilesize=${(filesizeId)}`);
-                    window.location.href = (`https://download.megaup.net/?idurl=${encodeURIComponent(urlId)}&idfilename=${(filenameId)}&idfilesize=${(filesizeId)}`)
+                    console.log(`https://download.megaup.net/?idurl=${encodeURIComponent(urlId)}&idfilename=${(rms)}&idfilesize=${(filesizeId)}`);
+                    window.location.href = (`https://download.megaup.net/?idurl=${encodeURIComponent(urlId)}&idfilename=${(rms)}&idfilesize=${(filesizeId)}`)
                 }
-            }, 2500);
-        }, 2500);
+            }, 3000);
+        }, 3000);
         }, false)
 })();
